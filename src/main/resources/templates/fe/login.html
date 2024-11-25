@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head th:replace="fe/layout/head::head" ></head>
+	<body>
+		<!-- HEADER -->
+		<header th:replace="fe/layout/header::header" ></header>
+		<!-- /HEADER -->
+
+		<!-- NAVIGATION -->
+		<nav th:replace="fe/layout/navigation::navigation" ></nav>
+		<!-- /NAVIGATION -->
+
+		<!-- SECTION -->
+		
+		<!-- /SECTION -->
+		<div class="user-login-area mb-70">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 ">
+						<div class="login-title text-center mb-30">
+							<h2>Login</h2>
+						</div>
+						<div class="text-center pb-2 ">
+							<span class="text-danger font-weight-bold" th:text="${error}"></span>
+						</div>
+						<div class="centscreener">
+							<div class="offset-lg-3 col-lg-6 col-md-12 col-12" >
+							
+								<form class="login-form" th:action="@{/login}" method="post">
+									<div class="single-login">
+										<label>User name<span>*</span></label>
+										<input type="text" name="username" />
+									</div>
+									<div class="single-login">
+										<label>Password <span>*</span></label>
+										<input type="password" name="password" />
+									</div>
+									<div class="single-login single-login-2">
+										<button type="submit">Login</button>
+										<input id="rememberme" type="checkbox" name="rememberme" value="forever">
+										<span>Remember password</span>
+									</div>
+									<div><a href="#">Forget password</a> </div>
+									<div><a th:href="@{/register}">Register</a></div>
+			
+								</form>
+							</div>
+						</div>
+					</div>
+					
+					
+				</div>
+				</div>
+			</div>
+		<!-- NEWSLETTER -->
+		<div th:replace="fe/layout/newsletter::newsletter	"></div>
+		<!-- /NEWSLETTER -->
+
+		<!-- FOOTER -->
+		<footer th:replace="fe/layout/footer::footer"></footer>
+		<!-- /FOOTER -->
+
+		<!-- jQuery Plugins -->
+	<div th:replace="fe/layout/js::js"></div>
+
+	</body>
+</html>

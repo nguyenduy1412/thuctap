@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head th:replace="fe/layout/head::head"></head>
+
+<body>
+	<!-- HEADER -->
+	<header th:replace="fe/layout/header::header"></header>
+	<!-- /HEADER -->
+
+	<!-- NAVIGATION -->
+	<nav th:replace="fe/layout/navigation::navigation"></nav>
+	<!-- /NAVIGATION -->
+
+	<!-- SECTION -->
+
+	<!-- /SECTION -->
+	<div class="user-login-area mb-70">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 ">
+					<div class="login-title text-center mb-30">
+						<h2>Register</h2>
+					</div>
+					<div class="text-center pb-2 ">
+						<span class="text-danger font-weight-bold" th:text="${error}"></span>
+					</div>
+					<div class="centscreener">
+						<div class="offset-lg-3 col-lg-6 col-md-12 col-12">
+
+							<form class="login-form" th:action="@{/register}" method="post" th:object="${user}"
+								onsubmit="return validate()">
+
+								<div class="single-login">
+									<label>User name<span>*</span></label>
+									<input type="text" th:field="*{userName}" />
+									<span th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}"
+										class="text-danger"></span>
+									<span th:text="${error}" class="text-danger"></span>
+								</div>
+								<div class="single-login">
+									<label>Phone<span>*</span></label>
+									<input type="text" th:field="*{phone}" />
+									<span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"
+										class="text-danger"></span>
+								</div>
+								<div class="single-login">
+									<label>Password <span>*</span></label>
+									<input type="password" th:field="*{passWord}" id="pass1" />
+									<span th:if="${#fields.hasErrors('passWord')}" th:errors="*{passWord}"
+										class="text-danger"></span>
+								</div>
+								<div class="single-login">
+									<label>Confirm Password <span>*</span></label>
+									<input type="password" id="pass2" />
+									<div><span class="text-danger" id="error_pass"></span></div>
+								</div>
+
+								<div class="single-login single-login-2">
+									<button type="submit">Register</button>
+									<input id="rememberme" type="checkbox" name="rememberme" value="forever">
+									<span>Remember me</span>
+								</div>
+								<div><a href="#">Forget Password</a> </div>
+								<div><a th:href="@{/login}">Login</a></div>
+
+							</form>
+						</div>
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+	<!-- NEWSLETTER -->
+	<div th:replace="fe/layout/newsletter::newsletter	"></div>
+	<!-- /NEWSLETTER -->
+
+	<!-- FOOTER -->
+	<footer th:replace="fe/layout/footer::footer"></footer>
+	<!-- /FOOTER -->
+
+	<!-- jQuery Plugins -->
+	<div th:replace="fe/layout/js::js"></div>
+
+</body>
+
+</html>
